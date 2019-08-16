@@ -1,0 +1,36 @@
+version: "3"
+services:
+
+  ssa-ui:
+    image: understate/chart-engine-ui:dev
+    ports:
+      - "8888:8080"
+    networks:
+      - chart-engine-net
+    depends_on:
+      - chart-engine-api
+    restart: on-failure
+
+  chart-engine-api:
+    image: understate/chart-engine-api:dev
+    networks:
+      - chart-engine-net
+    depends_on:
+      - chart-engine-mysql
+    restart: on-failure
+
+  chart-engine-mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=chart_engine
+      - MYSQL_ROOT_PASSWORD=password
+    command:
+      - --lower_case_table_names=1
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    networks:
+      - chart-engine-net
+    restart: on-failure
+
+networks:
+  chart-engine-net:
