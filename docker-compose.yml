@@ -1,7 +1,7 @@
 version: "3"
 services:
 
-  ssa-ui:
+  chart-engine-ui:
     image: understate/chart-engine-ui:dev
     ports:
       - "8888:8080"
