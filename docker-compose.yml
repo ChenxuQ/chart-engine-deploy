@@ -1,8 +1,8 @@
 version: "3"
 services:
 
-  ssa-ui:
-    image: understate/chart-engine-ui:dev
+  chart-engine-ui:
+    image: understate/chart-engine-ui:v0.2.0
     ports:
       - "8888:8080"
     networks:
@@ -12,7 +12,7 @@ services:
     restart: on-failure
 
   chart-engine-api:
-    image: understate/chart-engine-api:dev
+    image: understate/chart-engine-api:v0.2.0
     networks:
       - chart-engine-net
     depends_on:
@@ -28,6 +28,8 @@ services:
       - --lower_case_table_names=1
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./chart-engine/mysql:/var/lib/mysql
     networks:
       - chart-engine-net
     restart: on-failure
