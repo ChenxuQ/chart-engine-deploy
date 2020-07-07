@@ -34,3 +34,7 @@ spec:
         image: understate/chart-engine-api:v0.2.0
         ports:
         - containerPort: 8889
+      initContainers:
+      - name: init-mysql
+        image: busybox:1.32
+        command: ['sh', '-c', 'until nslookup chart-engine-mysql; do echo waiting for mysql; sleep 2; done;']
