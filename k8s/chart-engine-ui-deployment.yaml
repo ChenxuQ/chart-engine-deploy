@@ -32,3 +32,7 @@ spec:
         image: understate/chart-engine-ui:v0.2.0
         ports:
         - containerPort: 8080
+      initContainers:
+      - name: init-api
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup chart-engine-api; do echo waiting for chart-engine-api; sleep 2; done;']
