@@ -4,11 +4,13 @@ metadata:
   name: chart-engine-api
   namespace: chart-engine
 spec:
-  ports:
-  - port: 8889
   selector:
     app: chart-engine-api
-  clusterIP: None
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 8889
+    targetPort: 8889
 ---
 apiVersion: apps/v1
 kind: Deployment
