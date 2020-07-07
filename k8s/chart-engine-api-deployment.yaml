@@ -36,5 +36,5 @@ spec:
         - containerPort: 8889
       initContainers:
       - name: init-mysql
-        image: busybox:1.32
+        image: busybox:1.28
         command: ['sh', '-c', 'until nslookup chart-engine-mysql; do echo waiting for mysql; sleep 2; done;']
