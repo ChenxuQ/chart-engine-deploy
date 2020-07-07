@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: chart-engine-api
+  namespace: chart-engine
 spec:
   ports:
   - port: 8889
@@ -15,6 +16,7 @@ metadata:
   name: chart-engine-api
   labels:
     app: chart-engine-api
+  namespace: chart-engine
 spec:
   replicas: 1
   selector:
