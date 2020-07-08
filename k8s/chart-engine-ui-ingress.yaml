@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1 
 kind: Ingress
 metadata:
-  name: chart-engine-ingress
+  name: chart-engine-ui-ingress
   namespace: chart-engine
 spec:
   rules:
