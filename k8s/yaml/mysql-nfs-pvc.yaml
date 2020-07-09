@@ -1,7 +1,8 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: mysql-nfs-pv-claim
+  name: chart-engine-mysql-pvc
+  namespace: chart-engine
 spec:
   storageClassName: nfs-dynamic-class
   accessModes:
